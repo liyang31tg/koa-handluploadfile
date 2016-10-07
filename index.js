@@ -16,8 +16,12 @@ function aa(path) {
                             console.log("错误处理")
                             reject({ status: 1, message: "文件读取失败" })
                         }
-                        const current_path = process.cwd();
-                        const path = current_path + "/public/file/upload"
+                        const current_path = process.cwd()
+                        const tmpPP = "/public/file/upload"
+                        if (path != null){
+                            tmpPP == path
+                        }
+                        const path = current_path + tmpPP
                         fs.writeFile(path + "/" + tmpTmpName, data, err => {
                             if (err) {
                                 console.log("错误处理")
