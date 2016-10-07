@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-function aa(path) {
+function aa(path1) {
     return async(ctx, next) => {
         const files = ctx.request.files
         if (files != null && files.length > 0) {
@@ -18,8 +18,8 @@ function aa(path) {
                         }
                         const current_path = process.cwd()
                         const tmpPP = "/public/file/upload"
-                        if (path != null){
-                            tmpPP == path
+                        if (path1 != null){
+                            tmpPP == path1
                         }
                         const path = current_path + tmpPP
                         fs.writeFile(path + "/" + tmpTmpName, data, err => {
