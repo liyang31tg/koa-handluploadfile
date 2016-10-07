@@ -1,5 +1,14 @@
 import fs from 'fs'
-
+/**
+ * 这个中间件已经上传到npm了，貌似koa2还不支持中间件是es6的语法，，所以啦你懂的，暂时不能用啦
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param  {[type]} path1 [description]
+ * @return {[type]}       [description]
+ */
 function aa(path1) {
     return async(ctx, next) => {
         const files = ctx.request.files
@@ -17,9 +26,10 @@ function aa(path1) {
                             reject({ status: 1, message: "文件读取失败" })
                         }
                         const current_path = process.cwd()
-                        const tmpPP = "/public/file/upload"
+                        let tmpPP = "/public/file/upload"
                         if (path1 != null){
-                            tmpPP == path1
+                            console.log("tesf")
+                            tmpPP = path1
                         }
                         const path = current_path + tmpPP
                         fs.writeFile(path + "/" + tmpTmpName, data, err => {
